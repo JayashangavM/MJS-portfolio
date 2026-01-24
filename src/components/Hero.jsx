@@ -8,7 +8,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', alignItems: 'center' }}
+                className="hero-grid"
             >
                 <div>
                     <h1 className="animate-gradient" style={{
@@ -40,7 +40,7 @@ const Hero = () => {
                         I focus on creating responsive UIs, efficient APIs, and data-driven dashboards.
                     </p>
 
-                    <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+                    <div className="hero-btns" style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                         <motion.a
                             href="#work"
                             className="btn-primary"

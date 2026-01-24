@@ -127,6 +127,25 @@ section {
   justify-content: center;
 }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 4rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
 .nav-link {
   position: relative;
   text-decoration: none !important;
@@ -300,6 +319,31 @@ h2::after {
   animation: gradientFlow 6s ease infinite;
 }
 
+footer {
+  display: block;
+  padding: 2rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--glass-border);
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.footer-text {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  margin: 0 auto;
+}
+
+.footer-subtext {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -321,15 +365,32 @@ h2::after {
 
 @media (max-width: 768px) {
   section {
-    padding: 80px 0;
+    padding: 60px 0;
+    min-height: auto;
+    /* Allow sections to height-to-content on mobile */
   }
 
-  #hero .container>div {
+  .hero-grid,
+  .about-grid {
     grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .hero-grid {
     text-align: center;
   }
 
+  .hero-btns {
+    justify-content: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   #hero img {
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
   }
 
@@ -337,11 +398,33 @@ h2::after {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   h2::after {
     width: 100%;
+  }
+
+  /* Optimized Performance for Mobile */
+  .glass {
+    backdrop-filter: blur(8px);
+    /* Reduced from 20px for performance */
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(10, 10, 10, 0.9);
+    /* More opaque, less blur needed */
+  }
+
+  body {
+    /* Simplify background gradients on mobile to prevent GPU lag */
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+    background-attachment: scroll;
+    /* Attachment fixed is expensive on mobile */
+  }
+
+  .spotlight {
+    display: none;
+    /* Hide spotlight entirely on mobile */
   }
 
   /* Navbar Mobile Styles */
@@ -357,5 +440,19 @@ h2::after {
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
+  }
+
+  /* Prevent horizontal scroll issues */
+  .container {
+    padding: 0 1rem;
+    overflow-x: hidden;
+  }
+
+  footer {
+    display: block;
+    padding: 6rem 1rem 12rem;
+    /* Substantial bottom padding for mobile bars */
+    margin-top: 2rem;
+    visibility: visible !important;
   }
 }

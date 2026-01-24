@@ -15,10 +15,20 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    // Only run spotlight tracking on desktop (mouse) devices
+    if (isTouchDevice) {
+      document.documentElement.style.setProperty('--x', '50%');
+      document.documentElement.style.setProperty('--y', '-500px'); // Hide it off-screen on touch
+      return;
+    }
+
     const handleMouseMove = (e) => {
       document.documentElement.style.setProperty('--x', `${e.clientX}px`);
       document.documentElement.style.setProperty('--y', `${e.clientY}px`);
     };
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
@@ -36,33 +46,17 @@ function App() {
         <About />
         <Projects />
         <Contact />
+        <footer>
+          <div className="container">
+            <p className="footer-text">
+              Designed & Built with <span style={{ color: 'var(--accent)' }}>♥</span> by Jayashangav M
+            </p>
+            <p className="footer-subtext">
+              © All Rights Reserved
+            </p>
+          </div>
+        </footer>
       </main>
-
-      <footer style={{
-        padding: '3rem 2rem',
-        textAlign: 'center',
-        borderTop: '1px solid var(--glass-border)',
-        marginTop: '4rem'
-      }}>
-        <div className="container">
-          <p style={{
-            color: 'var(--text-secondary)',
-            fontSize: '0.85rem',
-            fontFamily: 'var(--font-mono)',
-            margin: '0 auto'
-          }}>
-            Designed & Built with <span style={{ color: 'var(--accent)' }}>♥</span> by Jayashangav M
-          </p>
-          <p style={{
-            color: 'var(--text-secondary)',
-            fontSize: '0.75rem',
-            marginTop: '0.5rem',
-            opacity: 0.6
-          }}>
-            © All Rights Reserved
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

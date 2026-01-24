@@ -39,11 +39,7 @@ const Projects = () => {
             >
                 <h2>Notable Projects</h2>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                    gap: '2rem'
-                }}>
+                <div className="projects-grid">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}

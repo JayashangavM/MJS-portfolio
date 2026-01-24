@@ -20,7 +20,7 @@ const About = () => {
             >
                 <h2>Expertise & Background</h2>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 3fr) minmax(0, 2fr)', gap: '4rem' }} className="about-grid">
+                <div className="about-grid">
                     <div>
                         <p style={{ marginBottom: '1.5rem', fontSize: '1.1rem' }}>
                             I am a passionate <strong style={{ color: 'var(--accent)' }}>Information Technology</strong> student at Kongu Engineering College, Erode.
