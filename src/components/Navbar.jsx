@@ -70,7 +70,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <motion.div
                     whileHover={{ scale: 1.05 }}
                     style={{
-                        fontSize: '1.5rem',
+                        fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
                         fontWeight: 800,
                         color: 'var(--accent)',
                         cursor: 'pointer',

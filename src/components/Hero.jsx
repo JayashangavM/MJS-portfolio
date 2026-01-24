@@ -34,7 +34,8 @@ const Hero = () => {
                         maxWidth: '650px',
                         fontSize: '1.1rem',
                         color: 'var(--text-secondary)',
-                        lineHeight: 1.6
+                        lineHeight: 1.6,
+                        margin: '0 auto 3.5rem' // horizontally center on mobile
                     }}>
                         I am an Information Technology student skilled in building real-world web applications with React.js, Node.js, and Express.js.
                         I focus on creating responsive UIs, efficient APIs, and data-driven dashboards.
