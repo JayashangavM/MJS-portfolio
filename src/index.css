@@ -452,8 +452,8 @@ footer {
 
   footer {
     display: block;
-    padding: 6rem 1rem 12rem;
-    /* Substantial bottom padding for mobile bars */
+    padding: 4rem 1rem 4rem;
+    /* Tightened up the bottom space */
     margin-top: 2rem;
     visibility: visible !important;
   }
