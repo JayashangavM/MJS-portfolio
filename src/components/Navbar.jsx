@@ -69,10 +69,10 @@ const Navbar = ({ theme, toggleTheme }) => {
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <motion.div
                     whileHover={{ scale: 1.05 }}
+                    className="animate-gradient"
                     style={{
                         fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
                         fontWeight: 800,
-                        color: 'var(--accent)',
                         cursor: 'pointer',
                         letterSpacing: '-1px',
                         zIndex: 101 // Keep logo above mobile menu

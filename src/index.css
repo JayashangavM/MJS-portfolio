@@ -4,8 +4,8 @@
   /* Dark Theme (Default) */
   --bg-primary: #020617;
   --bg-secondary: #0f172a;
-  --accent: #38bdf8;
-  --accent-glow: rgba(56, 189, 248, 0.4);
+  --accent: #00d2ff;
+  --accent-glow: rgba(0, 210, 255, 0.5);
   --text-primary: #ffffff;
   --text-secondary: #e2e8f0;
   --glass: rgba(15, 23, 42, 0.8);
@@ -87,6 +87,7 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   position: relative;
+  will-change: transform, box-shadow, border-color;
 }
 
 .glass:hover {
@@ -101,8 +102,11 @@ body {
   position: fixed;
   inset: 0;
   z-index: 50;
-  /* Simple radial gradient that follows cursor */
-  background: radial-gradient(600px circle at var(--x) var(--y), rgba(56, 189, 248, 0.06), transparent 40%);
+  /* Brighter radial gradient that follows cursor */
+  background: radial-gradient(600px circle at var(--x) var(--y), rgba(0, 210, 255, 0.15), transparent 40%);
+  will-change: background;
+  transform: translateZ(0);
+  /* Force GPU layer */
 }
 
 .text-gradient {
@@ -308,16 +312,17 @@ h2::after {
 
 .animate-gradient {
   background: linear-gradient(-45deg,
-      var(--text-primary),
-      #38bdf8,
-      #818cf8,
-      #c084fc,
-      #f472b6);
+      #ffffff,
+      #00d2ff,
+      #3a7bd5,
+      #c471ed,
+      #f64f59);
   background-size: 300%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientFlow 6s ease infinite;
+  will-change: background-position;
 }
 
 footer {
@@ -411,8 +416,8 @@ footer {
     backdrop-filter: blur(8px);
     /* Reduced from 20px for performance */
     -webkit-backdrop-filter: blur(8px);
-    background: rgba(10, 10, 10, 0.9);
-    /* More opaque, less blur needed */
+    background: var(--glass);
+    /* Use theme-aware glass background */
   }
 
   body {
