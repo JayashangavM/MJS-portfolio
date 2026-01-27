@@ -421,11 +421,13 @@ footer {
   }
 
   body {
-    /* Simplify background gradients on mobile to prevent GPU lag */
     background-image:
-      radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+      var(--noise),
+      radial-gradient(circle at 15% 15%, var(--accent-glow) 0%, transparent 40%),
+      radial-gradient(circle at 85% 85%, var(--accent-glow) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.1) 0%, transparent 60%);
     background-attachment: scroll;
-    /* Attachment fixed is expensive on mobile */
+    /* Keep scroll for performance on mobile */
   }
 
   .spotlight {
