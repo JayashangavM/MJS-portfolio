@@ -125,11 +125,17 @@ body {
 }
 
 section {
-  padding: 120px 0;
-  min-height: 100vh;
+  padding: 60px 0;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#hero {
+  min-height: 90vh;
+  padding-top: 100px;
+  padding-bottom: 40px;
 }
 
 .hero-grid {
@@ -231,17 +237,27 @@ h3 {
 
 h2 {
   font-size: clamp(28px, 6vw, 42px);
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 1.5rem;
 }
 
+h2::before,
 h2::after {
   content: "";
   display: block;
   flex: 1;
   height: 1px;
+}
+
+h2::before {
+  background: linear-gradient(90deg, transparent, var(--glass-border));
+}
+
+h2::after {
   background: linear-gradient(90deg, var(--glass-border), transparent);
 }
 
@@ -312,16 +328,17 @@ h2::after {
 
 .animate-gradient {
   background: linear-gradient(-45deg,
-      #ffffff,
       #00d2ff,
-      #3a7bd5,
-      #c471ed,
-      #f64f59);
+      #a78bfa,
+      #f64f59,
+      #fdbb2d,
+      #22c1c3,
+      #00d2ff);
   background-size: 300%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientFlow 6s ease infinite;
+  animation: gradientFlow 5s ease-in-out infinite;
   will-change: background-position;
 }
 

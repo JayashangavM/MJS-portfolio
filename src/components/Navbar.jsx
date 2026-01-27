@@ -108,7 +108,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <div className="mobile-toggle" style={{ display: 'none', zIndex: 101 }}>
+                <div className="mobile-toggle" style={{ zIndex: 101 }}>
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         style={{ background: 'none', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}

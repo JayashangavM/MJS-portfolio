@@ -5,7 +5,7 @@ import { useState } from 'react';
 const Contact = () => {
     const [copied, setCopied] = useState(false);
 
-    const handleCopyEmail = (e) => {
+    const handleCopyEmail = () => {
         // Copy to clipboard
         navigator.clipboard.writeText('mjayashangav@gmail.com');
         setCopied(true);
@@ -24,7 +24,7 @@ const Contact = () => {
                 transition={{ duration: 0.8 }}
                 style={{ maxWidth: '600px', margin: '0 auto' }}
             >
-                <h2 style={{ fontSize: 'clamp(40px, 5vw, 60px)', marginBottom: '1.5rem', justifyContent: 'center' }}>
+                <h2 style={{ fontSize: 'clamp(40px, 5vw, 60px)', marginBottom: '1.5rem' }}>
                     Get In Touch
                 </h2>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '3.5rem' }}>

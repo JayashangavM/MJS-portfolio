@@ -65,17 +65,17 @@ function App() {
         <About />
         <Projects />
         <Contact />
-        <footer>
-          <div className="container">
-            <p className="footer-text">
-              Designed & Built with <span style={{ color: 'var(--accent)' }}>♥</span> by Jayashangav M
-            </p>
-            <p className="footer-subtext">
-              © All Rights Reserved
-            </p>
-          </div>
-        </footer>
       </main>
+      <footer>
+        <div className="container">
+          <p className="footer-text">
+            Designed & Built with <span style={{ color: 'var(--accent)' }}>♥</span> by Jayashangav M
+          </p>
+          <p className="footer-subtext">
+            © All Rights Reserved
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

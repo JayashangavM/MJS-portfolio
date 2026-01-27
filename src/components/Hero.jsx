@@ -20,15 +20,16 @@ const Hero = () => {
                     }}>
                         Jayashangav M
                     </h1>
-                    <h1 className="text-gradient" style={{
-                        fontSize: 'clamp(32px, 8vw, 64px)',
+                    <p className="text-gradient" style={{
+                        fontSize: 'clamp(24px, 5.5vw, 48px)',
                         lineHeight: 1.1,
                         marginBottom: '2rem',
                         fontWeight: 700,
-                        opacity: 0.9
+                        opacity: 0.9,
+                        whiteSpace: 'nowrap'
                     }}>
                         Full Stack Developer
-                    </h1>
+                    </p>
                     <p style={{
                         marginBottom: '3.5rem',
                         maxWidth: '650px',
