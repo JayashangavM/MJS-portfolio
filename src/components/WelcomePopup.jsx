@@ -106,9 +106,6 @@ const WelcomePopup = ({ show, onClose }) => {
                                 onClick={onClose}
                                 className="btn-primary"
                                 style={{
-                                    background: 'var(--accent)',
-                                    color: 'var(--bg-primary)',
-                                    border: 'none',
                                     padding: '0.8rem 2.5rem',
                                     width: '100%',
                                     justifyContent: 'center'

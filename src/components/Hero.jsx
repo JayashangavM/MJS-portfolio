@@ -48,7 +48,7 @@ const Hero = () => {
                             className="btn-primary"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            style={{ background: 'var(--accent)', color: 'var(--bg-primary)', padding: '0.85rem 2rem' }}
+                            style={{ padding: '0.85rem 2rem' }}
                         >
                             See My Projects <ArrowRight size={18} />
                         </motion.a>
@@ -58,7 +58,7 @@ const Hero = () => {
                             className="btn-primary"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            style={{ padding: '0.85rem 2rem' }}
+                            style={{ padding: '0.85rem 2rem', animationDelay: '-2s' }}
                         >
                             Get In Touch <Mail size={18} />
                         </motion.a>

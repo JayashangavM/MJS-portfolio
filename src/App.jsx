@@ -29,13 +29,16 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
+    // Optimization: Cache the DOM element lookup
+    const spotlight = document.querySelector('.spotlight');
+
     const handleMouseMove = (e) => {
-      const spotlight = document.querySelector('.spotlight');
-      if (spotlight) {
-        requestAnimationFrame(() => {
-          spotlight.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
-        });
-      }
+      // Don't run on mobile or if spotlight element is missing
+      if (window.innerWidth <= 768 || !spotlight) return;
+
+      requestAnimationFrame(() => {
+        spotlight.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
