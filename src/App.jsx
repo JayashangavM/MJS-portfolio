@@ -29,22 +29,13 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-    // For touch devices, place the spotlight at a subtle default position
-    // or let it follow the initial scroll position.
-    if (isTouchDevice) {
-      document.documentElement.style.setProperty('--x', '50%');
-      document.documentElement.style.setProperty('--y', '20%');
-      return;
-    }
-
     const handleMouseMove = (e) => {
-      // Use requestAnimationFrame to throttle updates and prevent layout thrashing
-      requestAnimationFrame(() => {
-        document.documentElement.style.setProperty('--x', `${e.clientX}px`);
-        document.documentElement.style.setProperty('--y', `${e.clientY}px`);
-      });
+      const spotlight = document.querySelector('.spotlight');
+      if (spotlight) {
+        requestAnimationFrame(() => {
+          spotlight.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+        });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });

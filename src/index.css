@@ -96,17 +96,19 @@ body {
   transform: translateY(-4px);
 }
 
-/* Spotlight Effect Class - Logic in App.jsx handles the position */
+/* Spotlight Effect - Optimized version using transform */
 .spotlight {
   pointer-events: none;
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.15), transparent 70%);
   z-index: 50;
-  /* Brighter radial gradient that follows cursor */
-  background: radial-gradient(600px circle at var(--x) var(--y), rgba(0, 210, 255, 0.15), transparent 40%);
-  will-change: background;
-  transform: translateZ(0);
-  /* Force GPU layer */
+  will-change: transform;
+  transform: translate(-100%, -100%);
+  /* Initial off-screen */
 }
 
 .text-gradient {
@@ -388,7 +390,7 @@ footer {
 
 @media (max-width: 768px) {
   section {
-    padding: 150px 0 60px;
+    padding: 40px 0;
     min-height: auto;
     /* Allow sections to height-to-content on mobile */
   }
@@ -401,6 +403,20 @@ footer {
 
   .hero-grid {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-grid>div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Force Hero text wrapping on mobile */
+  .hero-grid p.text-gradient {
+    white-space: normal !important;
   }
 
   .hero-btns {
@@ -418,14 +434,32 @@ footer {
   }
 
   h2 {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    font-size: 1.75rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    font-size: 1.6rem;
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+    /* Reduced from 2.5rem */
+  }
+
+  h2::before,
+  h2::after {
+    display: block;
+    /* Ensure they are visible */
   }
 
   h2::after {
-    width: 100%;
+    width: auto;
+  }
+
+  /* Center all headings in sections for mobile */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-align: center;
   }
 
   /* Optimized Performance for Mobile */
@@ -448,9 +482,8 @@ footer {
   }
 
   .spotlight {
-    display: block;
-    /* Show spotlight on mobile for ambient glow */
-    background: radial-gradient(400px circle at var(--x) var(--y), rgba(0, 210, 255, 0.08), transparent 40%);
+    display: none;
+    /* Hide spotlight on mobile to save resources */
   }
 
   /* Navbar Mobile Styles */
