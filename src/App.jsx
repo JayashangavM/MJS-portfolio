@@ -31,10 +31,11 @@ function App() {
   useEffect(() => {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    // Only run spotlight tracking on desktop (mouse) devices
+    // For touch devices, place the spotlight at a subtle default position
+    // or let it follow the initial scroll position.
     if (isTouchDevice) {
       document.documentElement.style.setProperty('--x', '50%');
-      document.documentElement.style.setProperty('--y', '-500px'); // Hide it off-screen on touch
+      document.documentElement.style.setProperty('--y', '20%');
       return;
     }
 

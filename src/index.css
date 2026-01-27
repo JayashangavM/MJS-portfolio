@@ -426,13 +426,14 @@ footer {
       radial-gradient(circle at 15% 15%, var(--accent-glow) 0%, transparent 40%),
       radial-gradient(circle at 85% 85%, var(--accent-glow) 0%, transparent 40%),
       radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.1) 0%, transparent 60%);
-    background-attachment: scroll;
-    /* Keep scroll for performance on mobile */
+    background-attachment: fixed;
+    /* Keep fixed for consistent mesh gradient look */
   }
 
   .spotlight {
-    display: none;
-    /* Hide spotlight entirely on mobile */
+    display: block;
+    /* Show spotlight on mobile for ambient glow */
+    background: radial-gradient(400px circle at var(--x) var(--y), rgba(0, 210, 255, 0.08), transparent 40%);
   }
 
   /* Navbar Mobile Styles */
