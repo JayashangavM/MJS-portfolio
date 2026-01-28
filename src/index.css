@@ -65,14 +65,22 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: var(--bg-primary);
-  /* Complex mesh gradient background */
+  transition: background-color 0.3s ease;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background-image:
     var(--noise),
     radial-gradient(circle at 15% 15%, var(--accent-glow) 0%, transparent 40%),
     radial-gradient(circle at 85% 85%, var(--accent-glow) 0%, transparent 40%),
     radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.1) 0%, transparent 60%);
-  background-attachment: fixed;
-  transition: background-color 0.3s ease;
+  pointer-events: none;
+  transform: translateZ(0);
+  /* Hardware accelerate background */
 }
 
 .glass {
@@ -88,6 +96,9 @@ body {
   overflow: hidden;
   position: relative;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  /* Force GPU render for expensive blur */
+  backface-visibility: hidden;
 }
 
 .glass:hover {
@@ -107,8 +118,8 @@ body {
   background: radial-gradient(circle, rgba(0, 210, 255, 0.15), transparent 70%);
   z-index: 50;
   will-change: transform;
-  transform: translate(-100%, -100%);
-  /* Initial off-screen */
+  transform: translate3d(-100%, -100%, 0);
+  /* Hardware accelerate spotlight movement */
 }
 
 .text-gradient {
@@ -132,6 +143,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  contain: layout paint;
 }
 
 #hero {
