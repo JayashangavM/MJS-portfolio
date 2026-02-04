@@ -87,7 +87,7 @@ const Contact = () => {
                     </a>
 
                     <div style={{ display: 'flex', gap: '2.5rem', marginTop: '1.5rem' }}>
-                        <a href="https://linkedin.com/in/jayashangav" target="_blank" rel="noreferrer" title="LinkedIn" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
+                        <a href="https://linkedin.com/in/jayashangav-m" target="_blank" rel="noreferrer" title="LinkedIn" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
                             <Linkedin size={26} />
                         </a>
                         <a href="https://github.com/JayashangavM" target="_blank" rel="noreferrer" title="GitHub" style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
